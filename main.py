@@ -1586,4 +1586,11 @@ async def StarTinG():
             await asyncio.sleep(5)
 
 if __name__ == '__main__':
-    asyncio.run(StarTinG())
+    # Bot background me chalega
+    def run_bot():
+        asyncio.run(StarTinG())
+
+    threading.Thread(target=run_bot, daemon=True).start()
+
+    # Flask turant start
+    start_flask()
