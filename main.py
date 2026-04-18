@@ -1586,12 +1586,4 @@ async def StarTinG():
             await asyncio.sleep(5)
 
 if __name__ == '__main__':
-    # Bot ko background thread me chalao
-    def run_bot():
-        asyncio.run(StarTinG())
-
-    bot_thread = threading.Thread(target=run_bot, daemon=True)
-    bot_thread.start()
-
-    # Flask main thread me chalega (IMPORTANT for Render)
-    start_flask()
+    asyncio.run(StarTinG())
