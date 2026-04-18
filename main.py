@@ -42,10 +42,14 @@ from Pb2 import (
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-ADMIN_UID = "4368569733"
-Uid = '4514539885'
-Pw = '9B6621BF38C652851CEFCD2379D42D40CBBAED9BBD85B305D365786568FBD315'
+ADMIN_UID = "4368569733"   # ye admin UID hai, change karne ki zaroorat nahi (agar public hai to chhodo, but also use env)
+Uid = os.environ.get("GUEST_UID")
+Pw = os.environ.get("GUEST_PASSWORD")
 region = 'IN'
+
+if not Uid or not Pw:
+    print("❌ GUEST_UID or GUEST_PASSWORD environment variables not set!")
+    sys.exit(1)
 
 online_writer = None
 whisper_writer = None
@@ -1507,7 +1511,7 @@ async def MaiiiinE():
 
     # Show loading animation
     os.system('clear')
-    print("🤖 ffezbot - STARTING")
+    print("🤖 FFEZBOT - STARTING")
     print("=" * 50)
     for i in range(1, 4):
         dots = "." * i
@@ -1515,7 +1519,7 @@ async def MaiiiinE():
         time.sleep(0.3)
 
     os.system('clear')
-    print("🤖 ffezbot - CONNECTING")
+    print("🤖 FFEZBOT - CONNECTING")
     print("=" * 50)
     print("┌────────────────────────────────────┐")
     print("│ ██████████████████████████████████ │")
@@ -1529,7 +1533,7 @@ async def MaiiiinE():
         print("⚠️ Chat connection timeout, continuing...")
 
     os.system('clear')
-    print(render('rmgamingind', colors=['white', 'green'], align='center'))
+    print(render('ffezbot', colors=['white', 'green'], align='center'))
     print('')
     print("🤖 FFEZBOT EMOTE API - ONLINE")
     print("=" * 50)
